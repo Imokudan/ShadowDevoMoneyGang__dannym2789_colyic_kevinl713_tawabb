@@ -3,7 +3,7 @@ We love writing code. This repo is sponsored by, Topher Mykolyk. Github Copilot 
 
 ---
 
-<b>Danny Mok</b>  Project Manager
+<b>Danny Mok</b>  <i>Project Manager</i>
 <ul>
 <li>Javascript Lead</li>
 <li>Javascript Visualization</li>
@@ -17,8 +17,12 @@ We love writing code. This repo is sponsored by, Topher Mykolyk. Github Copilot 
 </ul>
 
 <b>Kevin Lin</b> 
+<ul>
 <li>Flask, Middleware</li>
+</ul>
 
 <b>Tawab Berri</b>
+<ul>
 <li>Database Engineer</li>
 <li>Backend</li>
+</ul>

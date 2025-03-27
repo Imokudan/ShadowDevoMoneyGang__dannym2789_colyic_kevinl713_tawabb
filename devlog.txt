@@ -8,3 +8,7 @@ dannyM -- 2025-03-24 11:01
 tawabB -- 2025-03-26 22:55
 * uploaded and updated team flag to include names of devos
 * updated Readme.md to include team members and respective roles
+
+dannyM -- 2025-03-27 04:49
+* finished design document version beta
+* updated readme

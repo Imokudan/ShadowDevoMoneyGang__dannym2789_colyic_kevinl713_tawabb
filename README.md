@@ -7,7 +7,6 @@ We love writing code. This repo is sponsored by, Topher Mykolyk. Github Copilot 
 <ul>
 <li>Javascript Lead</li>
 <li>Javascript Visualization</li>
-<li>Flask, Middleware</li>
 </ul>
 
 <b>Colyi Chen</b>
@@ -19,6 +18,7 @@ We love writing code. This repo is sponsored by, Topher Mykolyk. Github Copilot 
 <b>Kevin Lin</b> 
 <ul>
 <li>Flask, Middleware</li>
+<li>Backend</li>
 </ul>
 
 <b>Tawab Berri</b>

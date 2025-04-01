@@ -12,3 +12,6 @@ tawabB -- 2025-03-26 22:55
 dannyM -- 2025-03-27 05:12
 * finished design document version beta
 * updated readme
+
+dannyM -- 2025-04-01 10:10
+* finished design document version 1.0 - added more clarification on graph visualization and added more database planning

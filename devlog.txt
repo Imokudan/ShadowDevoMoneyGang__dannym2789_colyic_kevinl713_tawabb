@@ -21,3 +21,6 @@ dannyM -- 2025-04-02 03:06
 
 dannyM -- 2025-04-02 09:22
 * finished basic working app
+
+dannyM -- 2025-04-02 09:27
+* added basic summary to root level readme

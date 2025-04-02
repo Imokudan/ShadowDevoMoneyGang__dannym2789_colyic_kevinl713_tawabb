@@ -24,3 +24,7 @@ dannyM -- 2025-04-02 09:22
 
 dannyM -- 2025-04-02 09:27
 * added basic summary to root level readme
+
+tawabB -- 2025-04-02 11:01
+* added basic db functions
+* need to convert csv to db table

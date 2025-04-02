@@ -18,3 +18,6 @@ dannyM -- 2025-04-01 10:10
 
 dannyM -- 2025-04-02 03:06
 * added basic packages to requirements.txt
+
+dannyM -- 2025-04-02 09:22
+* finished basic working app

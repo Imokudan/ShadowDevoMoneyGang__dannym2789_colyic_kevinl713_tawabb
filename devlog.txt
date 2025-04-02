@@ -15,3 +15,6 @@ dannyM -- 2025-03-27 05:12
 
 dannyM -- 2025-04-01 10:10
 * finished design document version 1.0 - added more clarification on graph visualization and added more database planning
+
+dannyM -- 2025-04-02 03:06
+* added basic packages to requirements.txt

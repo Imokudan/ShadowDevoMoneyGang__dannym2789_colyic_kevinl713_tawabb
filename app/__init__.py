@@ -1,5 +1,4 @@
-import sqlite3
-import os
+import os, db, sqlite3
 from flask import Flask,render_template,request,session,redirect,url_for,flash
 
 app = Flask(__name__)

@@ -44,6 +44,7 @@ def create():
         for row in csvo:
             c.execute("INSERT INTO csv (date, target, insult, tweet) VALUES (?, ?, ?, ?);", (row))
     db.commit()
+create()
 
 def createU(name, passw):
     c.execute("INSERT INTO users (username, password) VALUES (?, ?);", (name, passw))

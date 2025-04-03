@@ -13,8 +13,7 @@ db = sqlite3.connect(DB_FILE, check_same_thread = False)
 c = db.cursor()
 
 with open("app/static/trump_insult_tweets_2014_to_2021.csv", "r") as file:
-#print(f.read())
-text = csv.reader(file)
+    text = csv.reader(file)
 #csv = f.read().split("\n")
 print(text)
 

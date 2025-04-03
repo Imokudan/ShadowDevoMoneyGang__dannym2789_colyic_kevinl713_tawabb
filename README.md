@@ -8,6 +8,29 @@ Our project aims to tell a story with data involving Donald Trump's tweets from 
 
 ---
 
+# Install Guide
+
+**Cloning the Project**
+1. In terminal, clone the repository to your local machine:
+
+        git clone https://github.com/Imokudan/ShadowDevoMoneyGang__dannym2789_colyic_kevinl713_tawabb.git
+
+**Setting up Dependencies**
+1. Make sure python is installed on your machine. If not, go to [Python Download Page](https://www.python.org/downloads/) to install
+2. Create a virtual environment in terminal
+ 
+        python3 -m venv name
+
+3. Activate the virtual environment in terminal (specifiy the path to the venv if your current working directory does not contain the venv)
+
+        . name/bin/activate
+
+4. Install requirements (make sure pip is intalled)
+
+        pip install -r ShadowDevoMoneyGang__dannym2789_colyic_kevinl713_tawabb/requirements.txt
+
+---
+
 <b>Danny Mok</b>  <i>Project Manager</i>
 <ul>
 <li>Javascript Lead</li>

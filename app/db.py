@@ -48,13 +48,20 @@ create()
 #print("db method")
 
 def createU(name, passw):
-    c.execute("INSERT INTO users (username, password) VALUES (?, ?);", (name, passw))
-    db.commit()
-    print(f"added user {name} to database!")
+    c.execute("SELECT id FROM users WHERE username = ?" (name,))
+    r = c.catchall()
+    if (len(r) == 0):
+        c.execute("INSERT INTO users (username, password) VALUES (?, ?);", (name, passw))
+        db.commit()
+        print(f"added user {name} to database!")
+        return True
+    else:
+        print("user alrdy in db")
+        return False
 
-def getUserPass(id):
-    c.execute("SELECT username, password FROM users WHERE id = ?", (id,))
+def getPass(user):
+    c.execute("SELECT password FROM users WHERE username = ?", (user,))
     row = c.fetchone()
     if row == None:
         return None
-    return [row[0], row[1]]
+    return row[0]

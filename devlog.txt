@@ -32,5 +32,8 @@ tawabB -- 2025-04-02 11:01
 dannyM -- 2025-04-03 09:41
 * added install guide
 
-tawabB -- 2025-04-03
+tawabB -- 2025-04-03 10:45
 * database functional, adding more methods to access from init.py
+
+tawabB -- 2025-04-03 11:01
+* added more db methods in app code

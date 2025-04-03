@@ -22,7 +22,11 @@ def login():
     username = request.form.get('username')
     password = request.form.get('password')
     #Check if user and pass match database
-        #session['username'] = username
+    if (username == db.getPass(username)):
+        print("login successful!")
+        session['username'] = username
+        return redirect('/')
+        #redirects to home page
     return render_template('login.html')
 
 #Adds user info to database
@@ -30,6 +34,8 @@ def login():
 def register():
     username = request.form.get('username')
     password = request.form.get('password')
+    if (db.createU(username, password)):
+        return redirect('/')
     #Check if username is the same otherwise add to database
     return render_template('register.html')
 

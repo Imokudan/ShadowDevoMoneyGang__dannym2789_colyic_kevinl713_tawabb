@@ -6,6 +6,7 @@ app.secret_key = os.urandom(32)
 
 @app.route("/")
 def home():
+    #db.create()
     return render_template('home.html')
 
 @app.route("/visualization")

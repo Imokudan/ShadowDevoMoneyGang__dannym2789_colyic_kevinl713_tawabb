@@ -13,7 +13,9 @@ db = sqlite3.connect(DB_FILE, check_same_thread = False)
 c = db.cursor()
 
 f = open("app/static/trump_insult_tweets_2014_to_2021.csv", "r")
-print(f.read())
+#print(f.read())
+csv = f.read().split("\n")
+print(csv)
 
 def create():
     c.execute("DROP TABLE IF EXISTS users;")

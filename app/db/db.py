@@ -14,11 +14,10 @@ c = db.cursor()
 
 with open("app/static/trump_insult_tweets_2014_to_2021.csv", "r") as file:
     text = csv.reader(file)
-#csv = f.read().split("\n")
-csv = []
-for row in text:
-    csv.append(row)
-print(csv)
+    csv = []
+    for row in text:
+        csv.append(row)
+    print(csv)
 
 def create():
     c.execute("DROP TABLE IF EXISTS users;")

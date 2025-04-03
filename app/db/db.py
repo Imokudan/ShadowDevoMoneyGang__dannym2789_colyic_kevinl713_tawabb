@@ -5,17 +5,18 @@ Spring 2025
 p04 - Trump Insults
 '''
 
-import sqlite3
+import sqlite3, csv
 
 DB_FILE = "database.db"
 
 db = sqlite3.connect(DB_FILE, check_same_thread = False)
 c = db.cursor()
 
-f = open("app/static/trump_insult_tweets_2014_to_2021.csv", "r")
+with open("app/static/trump_insult_tweets_2014_to_2021.csv", "r") as f
 #print(f.read())
-csv = f.read().split("\n")
-print(csv)
+text = csv.reader(file)
+#csv = f.read().split("\n")
+print(text)
 
 def create():
     c.execute("DROP TABLE IF EXISTS users;")

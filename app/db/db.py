@@ -14,10 +14,11 @@ c = db.cursor()
 
 with open("app/static/trump_insult_tweets_2014_to_2021.csv", "r") as file:
     text = csv.reader(file)
-    csv = []
+    csvo = []
     for row in text:
-        csv.append(row)
-    print(csv)
+        csvo.append(row)
+    #print(csv)
+    csv = csvo[1:]
 
 def create():
     c.execute("DROP TABLE IF EXISTS users;")
@@ -40,6 +41,8 @@ def create():
             tweet TEXT NOT NULL
         );
             ''')
+        for row in csvo:
+            c.execute("INSERT INTO csv (date, target, insult, tweet) VALUES (?, ?, ?, ?);", (row))
     db.commit()
 
 def createU(name, passw):

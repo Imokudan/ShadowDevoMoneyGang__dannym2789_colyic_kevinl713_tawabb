@@ -28,3 +28,6 @@ dannyM -- 2025-04-02 09:27
 tawabB -- 2025-04-02 11:01
 * added basic db functions
 * need to convert csv to db table
+
+dannyM -- 2025-04-03 09:41
+* added install guide

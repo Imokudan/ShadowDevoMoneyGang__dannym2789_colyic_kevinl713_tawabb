@@ -37,3 +37,6 @@ tawabB -- 2025-04-03 10:45
 
 tawabB -- 2025-04-03 11:01
 * added more db methods in app code
+
+tawabB -- 2025-04-04 09:46
+* database fully operational + more commands otw, awaiting login

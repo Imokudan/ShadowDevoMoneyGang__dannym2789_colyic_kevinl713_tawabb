@@ -22,11 +22,7 @@ def login():
     username = request.form.get('username')
     password = request.form.get('password')
     #Check if user and pass match database
-    if (username == db.getPass(username)):
-        print("login successful!")
-        session['username'] = username
-        return redirect('/')
-        #redirects to home page
+        #session['username'] = username
     return render_template('login.html')
 
 #Adds user info to database
@@ -34,8 +30,6 @@ def login():
 def register():
     username = request.form.get('username')
     password = request.form.get('password')
-    if (db.createU(username, password)):
-        return redirect('/')
     #Check if username is the same otherwise add to database
     return render_template('register.html')
 
@@ -49,6 +43,8 @@ def preferences():
 def interest():
     if 'username' not in session:
         return redirect('/')
+    #Get the preferences of the user then fetch it from database
+    
     return render_template('home.html')
 
 if __name__ == "__main__":

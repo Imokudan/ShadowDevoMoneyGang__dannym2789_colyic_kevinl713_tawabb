@@ -48,7 +48,7 @@ create()
 #print("db method")
 
 def createU(name, passw):
-    c.execute("SELECT id FROM users WHERE username = ?" (name,))
+    c.execute("SELECT id FROM users WHERE username = ?", (name,))
     r = c.catchall()
     if (len(r) == 0):
         c.execute("INSERT INTO users (username, password) VALUES (?, ?);", (name, passw))
@@ -65,3 +65,12 @@ def getPass(user):
     if row == None:
         return None
     return row[0]
+
+def printdb():
+    c.execute("SELECT * FROM users;")
+    u = c.fetchall()
+    print(u)
+
+    c.execute("SELECT * FROM csv;")
+    s = c.fetchall()
+    print(s[:25])

@@ -49,6 +49,7 @@ def preferences():
 def interest():
     if 'username' not in session:
         return redirect('/')
+    pref = db.getPrefs(session['username'])
     #Get the preferences of the user then fetch it from database
 
     return render_template('home.html')

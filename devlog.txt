@@ -40,3 +40,6 @@ tawabB -- 2025-04-03 11:01
 
 tawabB -- 2025-04-04 09:46
 * database fully operational + more commands otw, awaiting login
+
+tawabB -- 2025-04-07 10:42
+* added db method requested by DKL

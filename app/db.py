@@ -74,3 +74,7 @@ def printdb():
     c.execute("SELECT * FROM csv;")
     s = c.fetchall()
     print(s[:25])
+
+def getPrefs(user):
+    c.execute("SELECT target_pref FROM users WHERE username = ?", (user,))
+    return c.fetchone()

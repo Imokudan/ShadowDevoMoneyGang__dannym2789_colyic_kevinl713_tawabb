@@ -1,4 +1,7 @@
-import os, db, sqlite3
+try:
+    import os, app.db, sqlite3
+except:
+    import os, db, sqlite3
 from flask import Flask,render_template,request,session,redirect,url_for,flash
 
 app = Flask(__name__)
@@ -49,10 +52,11 @@ def preferences():
 def interest():
     if 'username' not in session:
         return redirect('/')
+    pref = db.getPrefs(session['username'])
     #Get the preferences of the user then fetch it from database
 
     return render_template('home.html')
 
 if __name__ == "__main__":
     app.debug = True
-    app.run(use_reloader=False, debug=False)
+    app.run(use_reloader=False, debug=False, host='0.0.0.0')

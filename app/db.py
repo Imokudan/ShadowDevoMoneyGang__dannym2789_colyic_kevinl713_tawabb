@@ -78,3 +78,7 @@ def printdb():
 def getPrefs(user):
     c.execute("SELECT target_pref FROM users WHERE username = ?", (user,))
     return c.fetchone()
+
+def getTweet(prefs):
+    c.execute("SELECT tweet FROM csv WHERE target = ?", (prefs,))
+    return c.fetchall()

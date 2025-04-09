@@ -20,7 +20,7 @@ def visual():
     #Check login
     if 'username' not in session:
         return redirect('/')
-    return render_template('home.html')
+    return render_template('visualization.html')
 
 #Checks if user info is the same as the one saved in database
 @app.route("/login")
@@ -30,6 +30,7 @@ def login():
     #Check if user and pass match database
     if(db.getPass(username) == password):
         session['username'] = username
+        return redirect('/visual')
     return render_template('login.html')
 
 #Adds user info to database
@@ -46,7 +47,7 @@ def register():
 def preferences():
     if 'username' not in session:
         return redirect('/')
-    return render_template('home.html')
+    return render_template('preferences.html')
 
 @app.route("/interest")
 def interest():
@@ -54,8 +55,9 @@ def interest():
         return redirect('/')
     pref = db.getPrefs(session['username'])
     #Get the preferences of the user then fetch it from database
-
-    return render_template('home.html')
+    tweets = db.getTweet(pref)
+    print(tweets)
+    return render_template('interest.html')
 
 if __name__ == "__main__":
     app.debug = True

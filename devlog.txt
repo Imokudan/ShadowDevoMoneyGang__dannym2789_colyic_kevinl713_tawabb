@@ -49,3 +49,6 @@ colyiC -- 2025-04-07 10:58
 
 tawabB -- 2025-04-09 10:23
 * added db function requested by DKL
+
+colyiC -- 2025-04-09 10:41
+* make tailwind actually work

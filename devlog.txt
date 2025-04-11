@@ -16,6 +16,12 @@ dannyM -- 2025-03-27 05:12
 dannyM -- 2025-04-01 10:10
 * finished design document version 1.0 - added more clarification on graph visualization and added more database planning
 
+kevinL -- 2025-04-01 11:00
+* added basic flask functions
+
+kevinL -- 2025-04-01 22:28
+* added requirements.txt
+
 dannyM -- 2025-04-02 03:06
 * added basic packages to requirements.txt
 
@@ -24,6 +30,9 @@ dannyM -- 2025-04-02 09:22
 
 dannyM -- 2025-04-02 09:27
 * added basic summary to root level readme
+
+kevinL -- 2025-04-02 10:54
+* added login to flask
 
 tawabB -- 2025-04-02 11:01
 * added basic db functions
@@ -41,11 +50,20 @@ tawabB -- 2025-04-03 11:01
 tawabB -- 2025-04-04 09:46
 * database fully operational + more commands otw, awaiting login
 
+kevinL -- 2025-04-07 10:18
+* added comments on future methods
+
+kevinL -- 2025-04-07 10:26
+* added db methods into flask
+
 tawabB -- 2025-04-07 10:42
 * added db method requested by DKL
 
 colyiC -- 2025-04-07 10:58
 * setup tailwind, header
+
+kevinL -- 2025-04-09 10:18
+* changed return templates and redirects
 
 tawabB -- 2025-04-09 10:23
 * added db function requested by DKL

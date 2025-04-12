@@ -43,10 +43,12 @@ def register():
     #Check if username is the same otherwise add to database
     return render_template('register.html')
 
-@app.route("/preferences")
+@app.route("/preferences", methods=['GET', 'POST'])
 def preferences():
     if 'username' not in session:
         return redirect('/')
+    #Set preferences for tweets
+    pref = request.form.get('preference')
     return render_template('preferences.html')
 
 @app.route("/interest")
@@ -57,6 +59,7 @@ def interest():
     #Get the preferences of the user then fetch it from database
     tweets = db.getTweet(pref)
     print(tweets)
+    #Display tweets in html
     return render_template('interest.html')
 
 if __name__ == "__main__":

@@ -71,6 +71,10 @@ tawabB -- 2025-04-09 10:23
 colyiC -- 2025-04-09 10:41
 * make tailwind actually work
 
+tawabB -- 2025-04-13 12:38
+* added db function requested by DKL
+* added diagnostic terminal print statements on db file
+
 DESIGN REVISIONS THUS FAR:
 ------------------------------------
 No revisions as of: 4/10

@@ -49,6 +49,7 @@ def preferences():
         return redirect('/')
     #Set preferences for tweets
     pref = request.form.get('preference')
+    db.setPrefs(pref)
     return render_template('preferences.html')
 
 @app.route("/interest")

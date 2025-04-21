@@ -82,7 +82,7 @@ No revisions as of: 4/10
 
 HOME STRETCH CHECKLIST:
 ------------------------------------
-* finish java :: Danny
+* HTML support (visualization) & finish java :: Danny
 * HTML support :: Tawab
 * HTML support :: Kevin
 * HTML lead :: Colyi

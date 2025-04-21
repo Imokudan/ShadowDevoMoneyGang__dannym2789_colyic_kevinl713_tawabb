@@ -49,7 +49,7 @@ create()
 
 def createU(name, passw):
     c.execute("SELECT id FROM users WHERE username = ?", (name,))
-    r = c.catchall()
+    r = c.fetchall()
     if (len(r) == 0):
         c.execute("INSERT INTO users (username, password) VALUES (?, ?);", (name, passw))
         db.commit()

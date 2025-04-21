@@ -36,10 +36,11 @@ def login():
 #Adds user info to database
 @app.route("/register", methods=['GET', 'POST'])
 def register():
-    username = request.form.get('username')
-    password = request.form.get('password')
-    if(db.createU(username,password)):
-        return redirect('/login')
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+        if(db.createU(username,password)):
+            return redirect('/login')
     #Check if username is the same otherwise add to database
     return render_template('register.html')
 

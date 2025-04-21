@@ -89,6 +89,6 @@ def getTweet(prefs):
     return c.fetchall()
 
 def setPrefs(prefs):
-    c.execute("INSERT INTO users (target_pref) VALUES (?);" (prefs,))
+    c.execute("INSERT INTO users (target_pref) VALUES (?);", (prefs,))
     print("user preferences updated")
     return True

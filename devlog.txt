@@ -79,3 +79,11 @@ DESIGN REVISIONS THUS FAR:
 ------------------------------------
 No revisions as of: 4/10
 ====================================
+
+HOME STRETCH CHECKLIST:
+------------------------------------
+* finish HTML :: Danny
+* HTML support :: Tawab
+* HTML support :: Kevin
+* HTML lead :: Colyi
+====================================

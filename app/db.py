@@ -58,6 +58,14 @@ def createU(name, passw):
     else:
         print("user alrdy in db")
         return False
+    
+def getUser(user):
+    c.execute("SELECT username FROM users WHERE username = ?", (user,))
+    row = c.fetchone()
+    print(f"returning username {row} for user {user}")
+    if row == None:
+        return None
+    return row[0]
 
 def getPass(user):
     c.execute("SELECT password FROM users WHERE username = ?", (user,))
@@ -75,6 +83,7 @@ def printdb():
     c.execute("SELECT * FROM csv;")
     s = c.fetchall()
     print(s[:25])
+    return s
 
 def getPrefs(user):
     c.execute("SELECT target_pref FROM users WHERE username = ?", (user,))

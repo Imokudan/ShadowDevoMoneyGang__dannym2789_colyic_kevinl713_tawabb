@@ -83,6 +83,9 @@ No revisions as of: 4/10
 dannyM -- 2025-04-21 23:56
 * fixed small db error
 
+dannyM -- 2025-04-22 02:53
+* functioning login system
+
 HOME STRETCH CHECKLIST:
 ------------------------------------
 * HTML support (visualization) & finish java :: Danny

@@ -11,9 +11,12 @@ app.secret_key = os.urandom(32)
 def home():
     #db.create()
     print("before")
-    db.printdb()
+    datastore = db.printdb()[:25]
     print("after dbprint")
-    return render_template('home.html')
+    if 'username' in session:
+        print("logged in")
+        return render_template('home.html', loggedin=True, data=datastore)
+    return render_template('home.html', loggedin=False, data=datastore)
 
 @app.route("/visualization")
 def visual():
@@ -23,27 +26,42 @@ def visual():
     return render_template('visualization.html')
 
 #Checks if user info is the same as the one saved in database
-@app.route("/login")
+@app.route("/login", methods=['GET','POST'])
 def login():
+    if 'username' in session:
+        print("ALREADY LOGGED IN")
+        redirect(url_for('home'))
+
     if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
         #Check if user and pass match database
         if(db.getPass(username) == password):
             session['username'] = username
-            return redirect('/visual')
+            return redirect('/visualization')
+        else:
         #RETURN ERROR MESSAGE
+            return render_template('login.html', error = "INCORRECT USERNAME OR PASSWORD")
+
     return render_template('login.html')
+
 
 #Adds user info to database
 @app.route("/register", methods=['GET', 'POST'])
 def register():
+    if 'username' in session:
+        redirect(url_for('home'))
+
     if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
         if(db.createU(username,password)):
-            return redirect('/login')
+            session['username'] = db.getUser(username)
+            return redirect('/preferences')
+        else:
+            return render_template('register.html', error = "USERNAME EXISTS")
     #Check if username is the same otherwise add to database
+    
     return render_template('register.html')
 
 @app.route("/preferences", methods=['GET', 'POST'])
@@ -52,7 +70,8 @@ def preferences():
         return redirect('/')
     #Set preferences for tweets
     pref = request.form.get('preference')
-    db.setPrefs(pref)
+    if pref != None:
+        db.setPrefs(pref)
     return render_template('preferences.html')
 
 @app.route("/interest")
@@ -65,6 +84,11 @@ def interest():
     print(tweets)
     #Display tweets in html
     return render_template('interest.html')
+
+@app.route("/logout")
+def logout():
+    session.pop("username")
+    return redirect("/")
 
 if __name__ == "__main__":
     app.debug = True

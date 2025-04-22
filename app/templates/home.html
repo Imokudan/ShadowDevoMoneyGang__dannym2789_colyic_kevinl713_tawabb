@@ -13,7 +13,35 @@
       <h2 class="text-center text-4xl font-serif">(2015-2021)</h2>
     </div>
 
-    <a href = "{{url_for('login')}}"> Login </a>
-    <a href = "{{url_for('register')}}"> Register </a>
+    <div>
+      <ul>
+        
+        {% if loggedin%}
+        <li>
+          <a href = "{{url_for('logout')}}"> Logout </a>
+        </li>
+        <li>
+          <a href = "{{url_for('preferences')}}"> User Preferences </a>
+        </li>
+        
+        {% else %}
+        <li>
+          <a href = "{{url_for('login')}}"> Login </a>
+        </li>
+        <li>
+          <a href = "{{url_for('register')}}"> Register </a>
+        </li>
+
+        {% endif %}
+
+      </ul>
+    </div>
+
+    <div>
+      {% for x in data[1:] %}
+        <a>{{x[1]}} <br> Topic: {{x[2]}} <br> Insult: {{x[3]}} <br> {{x[4]}}</a>
+        <br><br>
+      {% endfor %}
+    </div>
   </body>
 </html>

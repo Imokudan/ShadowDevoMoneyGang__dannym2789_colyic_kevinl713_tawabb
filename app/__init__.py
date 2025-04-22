@@ -1,5 +1,5 @@
 try:
-    import os, app.db, sqlite3
+    import os, db, sqlite3
 except:
     import os, db, sqlite3
 from flask import Flask,render_template,request,session,redirect,url_for,flash
@@ -25,12 +25,14 @@ def visual():
 #Checks if user info is the same as the one saved in database
 @app.route("/login")
 def login():
-    username = request.form.get('username')
-    password = request.form.get('password')
-    #Check if user and pass match database
-    if(db.getPass(username) == password):
-        session['username'] = username
-        return redirect('/visual')
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+        #Check if user and pass match database
+        if(db.getPass(username) == password):
+            session['username'] = username
+            return redirect('/visual')
+        #RETURN ERROR MESSAGE
     return render_template('login.html')
 
 #Adds user info to database

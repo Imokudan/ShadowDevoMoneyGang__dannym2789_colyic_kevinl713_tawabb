@@ -58,7 +58,7 @@ def createU(name, passw):
     else:
         print("user alrdy in db")
         return False
-    
+
 def getUser(user):
     c.execute("SELECT username FROM users WHERE username = ?", (user,))
     row = c.fetchone()
@@ -101,3 +101,15 @@ def setPrefs(prefs):
     c.execute("INSERT INTO users (target_pref) VALUES (?);", (prefs,))
     print("user preferences updated")
     return True
+
+def getTargets():
+    c.execute("SELECT DISTINCT target FROM csv;")
+    u = c.fetchall()
+    print(u)
+    return u
+
+def getTargets():
+    c.execute("SELECT DISTINCT insult FROM csv;")
+    u = c.fetchall()
+    print(u)
+    return u

@@ -89,6 +89,9 @@ dannyM -- 2025-04-22 02:53
 tawabB -- 2025-04-22 10:22
 * fixed homepage dbprint
 
+tawabB -- 2025-04-22 11:06
+* added db funcs as requested by PM DM
+
 HOME STRETCH CHECKLIST:
 ------------------------------------
 * HTML support (visualization) & finish java :: Danny

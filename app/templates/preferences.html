@@ -18,5 +18,40 @@
             </a>
         </div>
     </nav>
+
+    <div>
+        <h1>{{username}}'s Preferences</h1>
+        <span>
+            <br>Chart Type: {{userlocation}}
+            <br>Insult Types: {{usernews|join(', ')}}
+            <br>Insult Targets: {{userstocks|join(", ")}}
+        </span>
+
+        <form method="POST" formaction="/profile">
+            <label for="chart_type">Choose the type of chart you want to be displayed:</label>
+            <select name="chart_type" id = "chart_type">
+                {% for type in charttypes %}
+                <option value="charttype">{{type}}</option>
+                {% endfor %}
+            </select>
+            
+            <label for="insult_types">Choose the insult types you're interested in:</label>
+            <select name="insult_types" id = "insult_types" size="10" multiple>
+                {% for type in insulttypes %}
+                <option value="insulttype">{{type}}</option>
+                {% endfor %}
+            </select>
+            
+            <label for="insult_targets">Choose the insult targets you want displayed:</label>
+            <select name="insult_targets" id = "insult_targets" size="10" multiple>
+                {% for target in insulttargets %}
+                <option value="insulttype">{{target}}</option>
+                {% endfor %}
+            </select>
+            
+            <button type="submit" name="type" value="submit">Submit</button>
+            
+        </form>
+    </div>
   </body>
 </html>

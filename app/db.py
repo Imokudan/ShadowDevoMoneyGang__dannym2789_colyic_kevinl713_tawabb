@@ -12,7 +12,7 @@ DB_FILE = "app/database.db"
 db = sqlite3.connect(DB_FILE, check_same_thread = False)
 c = db.cursor()
 
-with open("app/static/trump_insult_tweets_2014_to_2021.csv", "r") as file:
+with open("app/static/trump_insult_tweets_2014_to_2021.csv", "r", encoding="utf-8") as file:
     text = csv.reader(file)
     csvo = []
     for row in text:

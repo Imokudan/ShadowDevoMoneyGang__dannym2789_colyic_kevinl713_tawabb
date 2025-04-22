@@ -1,0 +1,24 @@
+{
+  "name": "shadowdevomoneygang__dannym2789_colyic_kevinl713_tawabb",
+  "version": "1.0.0",
+  "description": "We love writing code. This repo is sponsored by, Topher Mykolyk. Github Copilot is now legal, worldwide.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Imokudan/ShadowDevoMoneyGang__dannym2789_colyic_kevinl713_tawabb.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Imokudan/ShadowDevoMoneyGang__dannym2789_colyic_kevinl713_tawabb/issues"
+  },
+  "homepage": "https://github.com/Imokudan/ShadowDevoMoneyGang__dannym2789_colyic_kevinl713_tawabb#readme",
+  "dependencies": {
+    "tailwindcss": "^4.1.4"
+  }
+}

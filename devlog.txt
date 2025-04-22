@@ -80,6 +80,9 @@ DESIGN REVISIONS THUS FAR:
 No revisions as of: 4/10
 ====================================
 
+dannyM -- 2025-04-21 23:56
+* fixed small db error
+
 HOME STRETCH CHECKLIST:
 ------------------------------------
 * HTML support (visualization) & finish java :: Danny

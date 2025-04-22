@@ -108,7 +108,7 @@ def getTargets():
     print(u)
     return u
 
-def getTargets():
+def getInsults():
     c.execute("SELECT DISTINCT insult FROM csv;")
     u = c.fetchall()
     print(u)

@@ -11,7 +11,7 @@ app.secret_key = os.urandom(32)
 def home():
     #db.create()
     print("before")
-    datastore = db.printdb()
+    datastore = db.printdb()[:25]
     print("after dbprint")
     if 'username' in session:
         print("logged in")
@@ -21,8 +21,8 @@ def home():
 @app.route("/visualization")
 def visual():
     #Check login
-    if 'username' not in session:
-        return redirect('/')
+    #if 'username' not in session:
+    #    return redirect('/')
     return render_template('visualization.html')
 
 #Checks if user info is the same as the one saved in database

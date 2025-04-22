@@ -15,7 +15,7 @@
 
     <div>
       <ul>
-        
+
         {% if loggedin%}
         <li>
           <a href = "{{url_for('logout')}}"> Logout </a>
@@ -23,7 +23,7 @@
         <li>
           <a href = "{{url_for('preferences')}}"> User Preferences </a>
         </li>
-        
+
         {% else %}
         <li>
           <a href = "{{url_for('login')}}"> Login </a>
@@ -33,6 +33,10 @@
         </li>
 
         {% endif %}
+
+        <li>
+          <a href = "{{url_for('visual')}}"> Visualization </a>
+        </li>
 
       </ul>
     </div>

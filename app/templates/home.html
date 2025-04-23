@@ -49,7 +49,7 @@
 
     <div class="text-xl text-center">
       {% for x in data[1:] %}
-        <a>{{x[1]}} <br> Topic: {{x[2]}} <br> Insult: {{x[3]}} <br> {{x[4]}}</a>
+        <a><b>{{x[1]}} <br> {{x[2].replace("-", " ").title()}} </b><br> Insult: {{x[3]}} <br> {{x[4]}}</a>
         <br><br>
       {% endfor %}
     </div>

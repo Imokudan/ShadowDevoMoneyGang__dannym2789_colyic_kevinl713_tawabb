@@ -12,34 +12,27 @@
     <nav class="p-4 bg-black text-white font-semibold">
       <ul class="flex text-lg">
         <li class="mr-6 hover:underline">
-          <a href = "{{url_for('home')}}"> Home </a>
+          <a href="{{ url_for('home') }}">Home</a>
         </li>
-        {% if loggedin%}
+        {% if loggedin %}
         <li class="mr-6 hover:underline">
-          <a href = "{{url_for('logout')}}"> Logout </a>
+          <a href="{{ url_for('logout') }}">Logout</a>
         </li>
         <li class="mr-6 hover:underline">
-          <a href = "{{url_for('preferences')}}"> Preferences </a>
+          <a href="{{ url_for('preferences') }}">User Preferences</a>
         </li>
-
         {% else %}
         <li class="mr-6 hover:underline">
-          <a href = "{{url_for('login')}}"> Login </a>
+          <a href="{{ url_for('login') }}">Login</a>
         </li>
         <li class="mr-6 hover:underline">
-          <a href = "{{url_for('register')}}"> Register </a>
+          <a href="{{ url_for('register') }}">Register</a>
         </li>
-
         {% endif %}
 
         <li class="mr-6 hover:underline">
-          <a href = "{{url_for('visual')}}"> Visualization </a>
+          <a href="{{ url_for('visual') }}">Visualization</a>
         </li>
-
-        <li class="mr-6 hover:underline">
-          <a href = "{{url_for('preferences')}}"> Preferences </a>
-        </li>
-
       </ul>
     </nav>
 
@@ -50,9 +43,10 @@
 
     <div class="text-xl text-center">
       {% for x in data[1:] %}
-        <a><b>{{x[1]}} <br> {{x[2].replace("-", " ").title()}} </b><br> Insult: {{x[3]}} <br> {{x[4]}}</a>
+        <a><b>{{ x[1] }} <br> {{ x[2].replace("-", " ").title() }} </b><br> Insult: {{ x[3] }} <br> {{ x[4] }}</a>
         <br><br>
       {% endfor %}
     </div>
   </body>
 </html>
+

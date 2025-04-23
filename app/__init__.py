@@ -15,6 +15,9 @@ def home():
     print("after dbprint")
     if 'username' in session:
         print("logged in")
+        pref = db.getPrefs(session['username'])[0][0]
+        if pref is not None:
+            datastore = db.getTweet(pref)
         return render_template('home.html', loggedin=True, data=datastore)
     return render_template('home.html', loggedin=False, data=datastore)
 
@@ -30,7 +33,7 @@ def visual():
 def login():
     if 'username' in session:
         print("ALREADY LOGGED IN")
-        redirect(url_for('home'))
+        return redirect(url_for('home'))
 
     if request.method == 'POST':
         username = request.form.get('username')
@@ -68,43 +71,30 @@ def register():
 def preferences():
     if 'username' not in session:
         return redirect('/')
-    #Set preferences for tweets
 
-    id = ""
-    chart = ""
-    types = []
-    targets = []
-
-    chartList = ["bar", "line", "pie", "radar"]
-    print(chartList)
-    typesList = list(db.getInsults())
-    print(typesList)
-    targetsList = list(db.getTargets())
-    print(targetsList)
+    id = session['username']
+    targetsList = [i[0] for i in db.getTargets()]
 
     if request.method == 'POST':
-        id = session.get('username')
-        chart = request.form.get("chart_type")
-        types = request.form.get("insult_types")
-        targets = request.form.get("insult_targets")
+        selected_target = request.form.get("insulttarget")
 
-        if chart == None or types == None or targets == None:
-            return render_template('preferences.html', username = id, error = "OPTION LEFT BLANK", usercharts = db.getPrefs(id), usertypes = db.getPrefs(id), usertargets = db.getPrefs(id), charttypes = chartList, insulttypes = typesList, insulttargets = targetsList)
-        
-        db.setPrefs(session['username'],"" + chart + " " + types + " " + targets)
+        if not selected_target:
+            return render_template('preferences.html',username=id,error="Please select a target.",usertarget=db.getPrefs(id),insulttargets=targetsList)
 
-    return render_template('preferences.html', username = id, error = "", usercharts = db.getPrefs(id), usertypes = db.getPrefs(id), usertargets = db.getPrefs(id), charttypes = chartList, insulttypes = typesList, insulttargets = targetsList)
+        db.setPrefs(id, selected_target)
 
-@app.route("/interest")
-def interest():
-    if 'username' not in session:
-        return redirect('/')
-    pref = db.getPrefs(session['username'])
+    return render_template('preferences.html',username=id,error="",usertarget=db.getPrefs(id),insulttargets=targetsList)
+
+#@app.route("/interest")
+#def interest():
+#    if 'username' not in session:
+#        return redirect('/')
+#    pref = db.getPrefs(session['username'])
     #Get the preferences of the user then fetch it from database
-    tweets = db.getTweet(pref)
-    print(tweets)
+#    tweets = db.getTweet(pref)
+#    print(tweets)
     #Display tweets in html
-    return render_template('interest.html')
+#    return render_template('interest.html')
 
 @app.route("/logout")
 def logout():
@@ -114,3 +104,4 @@ def logout():
 if __name__ == "__main__":
     app.debug = True
     app.run(use_reloader=False, debug=False, host='0.0.0.0')
+

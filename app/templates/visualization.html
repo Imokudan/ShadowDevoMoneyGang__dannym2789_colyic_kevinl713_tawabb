@@ -10,38 +10,38 @@
   </head>
 
   <body class="font-serif">
-    <nav class="p-4">
+    <nav class="p-4 bg-black text-white font-semibold">
         <ul class="flex text-lg">
-          <li class="mr-6">
+          <li class="mr-6 hover:underline">
             <a href = "{{url_for('home')}}"> Home </a>
           </li>
           {% if loggedin%}
-          <li class="mr-6">
+          <li class="mr-6 hover:underline">
             <a href = "{{url_for('logout')}}"> Logout </a>
           </li>
-          <li class="mr-6">
+          <li class="mr-6 hover:underline">
             <a href = "{{url_for('preferences')}}"> User Preferences </a>
           </li>
-          <li class="mr-6">
+          <li class="mr-6 hover:underline">
             <a href = "{{url_for('interest')}}"> Interests </a>
           </li>
   
           {% else %}
-          <li class="mr-6">
+          <li class="mr-6 hover:underline">
             <a href = "{{url_for('login')}}"> Login </a>
           </li>
-          <li class="mr-6">
+          <li class="mr-6 hover:underline">
             <a href = "{{url_for('register')}}"> Register </a>
           </li>
   
           {% endif %}
   
-          <li class="mr-6">
+          <li class="mr-6 hover:underline">
             <a href = "{{url_for('visual')}}"> Visualization </a>
           </li>
   
         </ul>
-    </nav>
+      </nav>
 
     <div>
     <canvas id="insultsChart" width="400" height="200"></canvas>

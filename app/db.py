@@ -93,7 +93,7 @@ def getPrefs(user):
     return ret
 
 def getTweet(prefs):
-    c.execute("SELECT tweet FROM csv WHERE target = ?", (prefs,))
+    c.execute("SELECT * FROM csv WHERE target = ?", (prefs,))
     print("returning tweet given target")
     return c.fetchall()
 
@@ -113,3 +113,4 @@ def getInsults():
     u = c.fetchall()
     print(u)
     return u
+

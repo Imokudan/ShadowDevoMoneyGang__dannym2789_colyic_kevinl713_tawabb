@@ -11,7 +11,7 @@ app.secret_key = os.urandom(32)
 def home():
     #db.create()
     print("before")
-    datastore = db.printdb()[:25]
+    datastore = db.printdb()
     print("after dbprint")
     if 'username' in session:
         print("logged in")

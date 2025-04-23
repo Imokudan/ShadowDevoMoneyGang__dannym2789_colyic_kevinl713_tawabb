@@ -84,9 +84,9 @@ def preferences():
 
     if request.method == 'POST':
         id = session.get('username')
-        chart = request.form.get("charttype")
-        types = request.form.get("insulttype")
-        targets = request.form.get("insulttarget")
+        chart = request.form.get("chart_type")
+        types = request.form.get("insult_types")
+        targets = request.form.get("insult_targets")
 
         if chart == None or types == None or targets == None:
             return render_template('preferences.html', username = id, error = "OPTION LEFT BLANK", usercharts = db.getPrefs(id), usertypes = db.getPrefs(id), usertargets = db.getPrefs(id), charttypes = chartList, insulttypes = typesList, insulttargets = targetsList)

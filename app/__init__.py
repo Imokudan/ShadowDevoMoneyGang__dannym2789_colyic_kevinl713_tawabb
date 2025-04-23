@@ -90,7 +90,7 @@ def preferences():
 
     pref = request.form.get('preference')
     if pref != None:
-        db.setPrefs(pref)
+        db.setPrefs(session['username'],pref)
     return render_template('preferences.html')
 
 @app.route("/interest")

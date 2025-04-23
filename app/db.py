@@ -97,8 +97,8 @@ def getTweet(prefs):
     print("returning tweet given target")
     return c.fetchall()
 
-def setPrefs(prefs):
-    c.execute("INSERT INTO users (target_pref) VALUES (?);", (prefs,))
+def setPrefs(user,prefs):
+    c.execute("UPDATE users SET target_pref = ? WHERE username = ?", (prefs, user))
     print("user preferences updated")
     return True
 

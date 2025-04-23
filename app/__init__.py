@@ -91,11 +91,8 @@ def preferences():
         if chart == None or types == None or targets == None:
             return render_template('preferences.html', username = id, error = "OPTION LEFT BLANK", usercharts = db.getPrefs(id), usertypes = db.getPrefs(id), usertargets = db.getPrefs(id), charttypes = chartList, insulttypes = typesList, insulttargets = targetsList)
         
-        db.setPrefs("" + chart + " " + types + " " + targets)
+        db.setPrefs(session['username'],"" + chart + " " + types + " " + targets)
 
-    pref = request.form.get('preference')
-    if pref != None:
-        db.setPrefs(pref)
     return render_template('preferences.html', username = id, error = "", usercharts = db.getPrefs(id), usertypes = db.getPrefs(id), usertargets = db.getPrefs(id), charttypes = chartList, insulttypes = typesList, insulttargets = targetsList)
 
 @app.route("/interest")

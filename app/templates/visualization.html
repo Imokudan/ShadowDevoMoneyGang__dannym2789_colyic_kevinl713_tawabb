@@ -42,38 +42,43 @@
   
         </ul>
       </nav>
+    
+    <div class="py-10">
+        <h1 class="text-center font-semibold text-4xl">All of Trump's Twitter Insults</h1>
+        <h2 class="text-center font-semibold text-4xl">(2015-2021)</h2>
+    </div>
 
-    <div>
-    <canvas id="insultsChart" width="400" height="200"></canvas>
-    <script>
-        // Example data
-        const labels = ['Media', 'Politicians', 'Celebrities', 'Organizations', 'Others'] // Replace with topics/insult type;
-        const data = {
-            labels: labels,
-            datasets: [{
-                label: 'Frequency of Insults',
-                data: [120, 95, 75, 50, 30], // Replace with actual data
-                borderWidth: 1
-            }]
-        };
+    <div class="py-10">
+        <canvas id="insultsChart" width="400" height="200"></canvas>
+        <script>
+            // Example data
+            const labels = ['Media', 'Politicians', 'Celebrities', 'Organizations', 'Others'] // Replace with topics/insult type;
+            const data = {
+                labels: labels,
+                datasets: [{
+                    label: 'Frequency of Insults',
+                    data: [120, 95, 75, 50, 30], // Replace with actual data
+                    borderWidth: 1
+                }]
+            };
 
-        const config = {
-            type: 'bar',
-            data: data,
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
+            const config = {
+                type: 'bar',
+                data: data,
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
                     }
                 }
-            }
-        };
+            };
 
-        const insultsChart = new Chart(
-            document.getElementById('insultsChart'),
-            config
-        );
-    </script>
+            const insultsChart = new Chart(
+                document.getElementById('insultsChart'),
+                config
+            );
+        </script>
     </div>
   </body>
 </html>

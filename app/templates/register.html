@@ -1,33 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+      <script src="https://cdn.tailwindcss.com"></script>
       <link href="./src/output.css" rel="stylesheet">
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Registration</title>
+      <title>Register</title>
   </head>
 
-    <body>
-    
-        <nav>
-            <div>
-                <h1>Trump's Insults</h1>
-                <a href="{{url_for('home')}}">
-                    <button href="{{url_for('home')}}">
-                        <span>Homepage</span>
-                    </button>
-                </a>
-            </div>
+    <body class="font-serif">
+        <nav class="p-4">
+            <ul class="flex text-lg">
+                <li class="mr-6">
+                <a href = "{{url_for('home')}}"> Home </a>
+                </li>
+                {% if loggedin%}
+                <li class="mr-6">
+                <a href = "{{url_for('logout')}}"> Logout </a>
+                </li>
+                <li class="mr-6">
+                <a href = "{{url_for('preferences')}}"> User Preferences </a>
+                </li>
+                <li class="mr-6">
+                <a href = "{{url_for('interest')}}"> Interests </a>
+                </li>
+        
+                {% else %}
+                <li class="mr-6">
+                <a href = "{{url_for('login')}}"> Login </a>
+                </li>
+                <li class="mr-6">
+                <a href = "{{url_for('register')}}"> Register </a>
+                </li>
+        
+                {% endif %}
+        
+                <li class="mr-6">
+                <a href = "{{url_for('visual')}}"> Visualization </a>
+                </li>
+        
+            </ul>
         </nav>
+    
+        <div class="py-10">
+            <h1 class="text-center font-semibold text-4xl font-serif">All of Trump's Twitter Insults</h1>
+            <h2 class="text-center font-semibold text-4xl font-serif">(2015-2021)</h2>
+        </div>
         
         <div>
-            <h1>REGISTER</h1>
-            <br>
-            <form method = 'POST'>
-                <input type="text" placeholder="Username" name="username"> <br>
-                <input type="password" placeholder="Password" name="password"> <br>
-                <button type="submit" name="input" value="registerbutton">Register</button> <br>
-            </form>
+            <form method="POST" class="max-w-sm mx-auto">
+                <div class="mb-5">
+                  <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username</label>
+                  <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                </div>
+                <div class="mb-5">
+                  <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                  <input type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                </div>
+                <button type="submit" class="text-white bg-black hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+              </form>
         </div>
         
         <div>

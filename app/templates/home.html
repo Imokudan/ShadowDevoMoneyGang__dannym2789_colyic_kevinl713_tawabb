@@ -8,44 +8,46 @@
       <title>All of Trump's Twitter Insults</title>
   </head>
 
-  <body>
-    <div>
-      <h1 class="text-center text-4xl font-serif">All of Trump's Twitter Insults</h1>
-      <h2 class="text-center text-4xl font-serif">(2015-2021)</h2>
-    </div>
-
-    <div>
-      <ul>
-
+  <body class="font-serif">
+    <nav class="p-4">
+      <ul class="flex text-lg">
+        <li class="mr-6">
+          <a href = "{{url_for('home')}}"> Home </a>
+        </li>
         {% if loggedin%}
-        <li>
+        <li class="mr-6">
           <a href = "{{url_for('logout')}}"> Logout </a>
         </li>
-        <li>
+        <li class="mr-6">
           <a href = "{{url_for('preferences')}}"> User Preferences </a>
         </li>
-        <li>
+        <li class="mr-6">
           <a href = "{{url_for('interest')}}"> Interests </a>
         </li>
 
         {% else %}
-        <li>
+        <li class="mr-6">
           <a href = "{{url_for('login')}}"> Login </a>
         </li>
-        <li>
+        <li class="mr-6">
           <a href = "{{url_for('register')}}"> Register </a>
         </li>
 
         {% endif %}
 
-        <li>
+        <li class="mr-6">
           <a href = "{{url_for('visual')}}"> Visualization </a>
         </li>
 
       </ul>
+    </nav>
+
+    <div class="py-10">
+      <h1 class="text-center font-semibold text-4xl">All of Trump's Twitter Insults</h1>
+      <h2 class="text-center font-semibold text-4xl">(2015-2021)</h2>
     </div>
 
-    <div>
+    <div class="text-xl text-center">
       {% for x in data[1:] %}
         <a>{{x[1]}} <br> Topic: {{x[2]}} <br> Insult: {{x[3]}} <br> {{x[4]}}</a>
         <br><br>

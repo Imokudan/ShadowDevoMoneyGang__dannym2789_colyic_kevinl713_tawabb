@@ -69,10 +69,31 @@ def preferences():
     if 'username' not in session:
         return redirect('/')
     #Set preferences for tweets
-    pref = request.form.get('preference')
-    if pref != None:
-        db.setPrefs(pref)
-    return render_template('preferences.html')
+
+    id = ""
+    chart = ""
+    types = []
+    targets = []
+
+    chartList = ["bar", "line", "pie", "radar"]
+    print(chartList)
+    typesList = list(db.getInsults())
+    print(typesList)
+    targetsList = list(db.getTargets())
+    print(targetsList)
+
+    if request.method == 'POST':
+        id = session.get('username')
+        chart = request.form.get("charttype")
+        types = request.form.get("insulttype")
+        targets = request.form.get("insulttarget")
+
+        if chart == None or types == None or targets == None:
+            return render_template('preferences.html', username = id, error = "OPTION LEFT BLANK", usercharts = db.getPrefs(id), usertypes = db.getPrefs(id), usertargets = db.getPrefs(id), charttypes = chartList, insulttypes = typesList, insulttargets = targetsList)
+        
+        db.setPrefs(session['username'],"" + chart + " " + types + " " + targets)
+
+    return render_template('preferences.html', username = id, error = "", usercharts = db.getPrefs(id), usertypes = db.getPrefs(id), usertargets = db.getPrefs(id), charttypes = chartList, insulttypes = typesList, insulttargets = targetsList)
 
 @app.route("/interest")
 def interest():

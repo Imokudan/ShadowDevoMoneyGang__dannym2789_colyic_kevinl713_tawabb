@@ -20,11 +20,15 @@
     </nav>
 
     <div>
+        <span>{{error}}</span>
+    </div>
+
+    <div>
         <h1>{{username}}'s Preferences</h1>
         <span>
             <br>Chart Type: {{usercharts}}
-            <br>Insult Types: {{usertypes|join(', ')}}
-            <br>Insult Targets: {{usertargets|join(", ")}}
+            <br>Insult Types: {{usertypes}}
+            <br>Insult Targets: {{usertargets}}
         </span>
 
         <form method="POST" formaction="/visualization">
@@ -45,7 +49,7 @@
             <label for="insult_targets">Choose the insult targets you want displayed:</label>
             <select name="insult_targets" id = "insult_targets" size="10" multiple>
                 {% for target in insulttargets %}
-                    <option value="insulttype">{{target}}</option>
+                    <option value="insulttarget">{{target}}</option>
                 {% endfor %}
             </select>
             

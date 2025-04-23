@@ -1,84 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-        <script src="https://cdn.tailwindcss.com"></script>
-      <link href="./src/output.css" rel="stylesheet">
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>User Preferences</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./src/output.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Preferences</title>
   </head>
 
   <body class="font-serif">
     <nav class="p-4 bg-black text-white font-semibold">
-        <ul class="flex text-lg">
-          <li class="mr-6 hover:underline">
-            <a href = "{{url_for('home')}}"> Home </a>
-          </li>
-          {% if loggedin%}
-          <li class="mr-6 hover:underline">
-            <a href = "{{url_for('logout')}}"> Logout </a>
-          </li>
-          <li class="mr-6 hover:underline">
-            <a href = "{{url_for('preferences')}}"> User Preferences </a>
-          </li>
-  
-          {% else %}
-          <li class="mr-6 hover:underline">
-            <a href = "{{url_for('login')}}"> Login </a>
-          </li>
-          <li class="mr-6 hover:underline">
-            <a href = "{{url_for('register')}}"> Register </a>
-          </li>
-  
-          {% endif %}
-  
-          <li class="mr-6 hover:underline">
-            <a href = "{{url_for('visual')}}"> Visualization </a>
-          </li>
-          <li class="mr-6 hover:underline">
-            <a href = "{{url_for('preferences')}}"> Preferences </a>
-          </li>
-  
-        </ul>
-      </nav>
+      <ul class="flex text-lg">
+        <li class="mr-6 hover:underline">
+          <a href="{{ url_for('home') }}">Home</a>
+        </li>
+        {% if session.username %}
+        <li class="mr-6 hover:underline">
+          <a href="{{ url_for('logout') }}">Logout</a>
+        </li>
+        <li class="mr-6 hover:underline">
+          <a href="{{ url_for('preferences') }}">User Preferences</a>
+        </li>
+        {% else %}
+        <li class="mr-6 hover:underline">
+          <a href="{{ url_for('login') }}">Login</a>
+        </li>
+        <li class="mr-6 hover:underline">
+          <a href="{{ url_for('register') }}">Register</a>
+        </li>
+        {% endif %}
+        <li class="mr-6 hover:underline">
+          <a href="{{ url_for('visual') }}">Visualization</a>
+        </li>
+      </ul>
+    </nav>
 
-    <div>
-        <span>{{error}}</span>
-    </div>
+    <div class="py-10 max-w-3xl mx-auto">
+      <h1 class="text-2xl font-bold mb-4 text-center">{{ username }}'s Preferences</h1>
 
-    <div>
-        <h1>{{username}}'s Preferences</h1>
-        <span>
-            <br>Chart Type: {{usercharts}}
-            <br>Insult Types: {{usertypes}}
-            <br>Insult Targets: {{usertargets}}
-        </span>
+      {% if error %}
+        <div class="text-red-600 mb-4 text-center">{{ error }}</div>
+      {% endif %}
 
-        <form method="POST" formaction="/visualization">
-            <label for="chart_type">Choose the type of chart you want to be displayed:</label>
-            <select name="chart_type" id = "chart_type">
-                {% for type in charttypes %}
-                    <option value="charttype">{{type}}</option>
-                {% endfor %}
-            </select>
-            
-            <label for="insult_types">Choose the insult types you're interested in:</label>
-            <select name="insult_types" id = "insult_types" size="10" multiple>
-                {% for type in insulttypes %}
-                    <option value="insulttype">{{type}}</option>
-                {% endfor %}
-            </select>
-            
-            <label for="insult_targets">Choose the insult targets you want displayed:</label>
-            <select name="insult_targets" id = "insult_targets" size="10" multiple>
-                {% for target in insulttargets %}
-                    <option value="insulttarget">{{target}}</option>
-                {% endfor %}
-            </select>
-            
-            <button type="submit" name="type" value="submit">Submit</button>
-            
-        </form>
+      <form method="POST" class="space-y-6">
+        <div>
+          <label for="insulttarget" class="block font-semibold mb-1">Insult Target:</label>
+          <select name="insulttarget" id="insulttarget" class="w-full p-2 border rounded" required>
+            {% for target in insulttargets %}
+              <option value="{{ target }}" {% if target == usertarget %}selected{% endif %}>{{ target }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <button type="submit" class="bg-black text-white px-6 py-2 rounded hover:bg-gray-800">
+          Submit
+        </button>
+      </form>
     </div>
   </body>
 </html>
+

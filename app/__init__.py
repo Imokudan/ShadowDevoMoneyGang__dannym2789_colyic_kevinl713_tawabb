@@ -70,28 +70,33 @@ def preferences():
         return redirect('/')
     #Set preferences for tweets
 
+    id = ""
     chart = ""
     types = []
     targets = []
 
-    chartlist = ["bar", "line", "pie", "radar"]
-    typesList = list(db.getInsults)
-    targetsList = list(db.getTargets)
+    chartList = ["bar", "line", "pie", "radar"]
+    print(chartList)
+    typesList = list(db.getInsults())
+    print(typesList)
+    targetsList = list(db.getTargets())
+    print(targetsList)
 
     if request.method == 'POST':
         id = session.get('username')
-        chart = request.form.get()
-        types = request.form.get()
-        targets = request.form.get()
+        chart = request.form.get("charttype")
+        types = request.form.get("insulttype")
+        targets = request.form.get("insulttarget")
 
-        print("" + chart + " " + types + " " + targets)
-        #db.setPrefs("" + chart + types + targets)
-
+        if chart == None or types == None or targets == None:
+            return render_template('preferences.html', username = id, error = "OPTION LEFT BLANK", usercharts = db.getPrefs(id), usertypes = db.getPrefs(id), usertargets = db.getPrefs(id), charttypes = chartList, insulttypes = typesList, insulttargets = targetsList)
+        
+        db.setPrefs("" + chart + " " + types + " " + targets)
 
     pref = request.form.get('preference')
     if pref != None:
         db.setPrefs(pref)
-    return render_template('preferences.html')
+    return render_template('preferences.html', username = id, error = "", usercharts = db.getPrefs(id), usertypes = db.getPrefs(id), usertargets = db.getPrefs(id), charttypes = chartList, insulttypes = typesList, insulttargets = targetsList)
 
 @app.route("/interest")
 def interest():

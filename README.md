@@ -56,3 +56,13 @@ NO API KEYS NEEDED
 <li>Database Engineer</li>
 <li>Backend</li>
 </ul>
+
+### FEATURE SPOTLIGHT
+* Responsive homepage
+* Simple preference page
+* Useful db functions
+
+### KNOWN BUGS/ISSUES
+* Loading all tweets at once overloads the server
+* Visualization page is not responsive to user input
+* Tweets displayed on the home page can often repeat due to how the data set is structured and categroized

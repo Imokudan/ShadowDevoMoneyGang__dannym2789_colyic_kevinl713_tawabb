@@ -69,6 +69,25 @@ def preferences():
     if 'username' not in session:
         return redirect('/')
     #Set preferences for tweets
+
+    chart = ""
+    types = []
+    targets = []
+
+    chartlist = ["bar", "line", "pie", "radar"]
+    typesList = list(db.getInsults)
+    targetsList = list(db.getTargets)
+
+    if request.method == 'POST':
+        id = session.get('username')
+        chart = request.form.get()
+        types = request.form.get()
+        targets = request.form.get()
+
+        print("" + chart + " " + types + " " + targets)
+        #db.setPrefs("" + chart + types + targets)
+
+
     pref = request.form.get('preference')
     if pref != None:
         db.setPrefs(pref)
